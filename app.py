@@ -3,7 +3,8 @@ import MTCOrderExcel, UPSTrack
 
 app = Flask(__name__)
 my_dict = {}
-UPLOAD_FOLDER = r'C:\Users\sdemi\PycharmProjects\flaskProject2\uploads'
+#UPLOAD_FOLDER = r'C:\Users\sdemi\PycharmProjects\flaskProject2\uploads'
+UPLOAD_FOLDER = r'uploads'
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
