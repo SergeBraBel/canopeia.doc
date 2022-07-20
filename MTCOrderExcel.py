@@ -35,4 +35,5 @@ class ExelFileCreator:
 
         wb.save(f'uploads/{self.order_number}_pedido(nf{self.nf_number}).xlsx')
 
-
+if __name__ == '__main__':
+    ExelFileCreator.run(debug=False)

@@ -256,6 +256,5 @@ class UPS:
         pl.save(f"uploads/{info_dict['order_number']}_PL.docx")
         self.track = info_dict['tracking_number']
 
-"""lable = UPS(1080, 20, 30, 40, 15.0, 5.5, 0, False)
-lable.create()"""
-
+if __name__ == '__main__':
+    UPS.run(debug=False)
