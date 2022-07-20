@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+{% block menu %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+    <form action="" method="post">
+        <p>
+            <label for="nfNumber" class="form-label">Numero da NF</label>
+            <input type="number" name="nfNumber" class="form-control" placeholder="Exemplo: 777" ><br>
+
+            <label for="orderNumber" class="form-label">Numero do pedido</label>
+            <input type="text" name="orderNumber" class="form-control" placeholder="Exemplo: 1082">
+        </p>
+
+
+        <p>
+            <input type="submit"  class="btn btn-lg btn-primary w-100 mx-0 mb-2" value="Emitir Excel">
+        </p>
+    </form>
+    {% if file_to_download %}
+
+        <button type="button" class="btn btn-outline-primary me-2">
+            <a href="{{ url_for('download', filename=file_to_download) }}">MTC Excel Baixar</a>
+        </button>
+        {% else %}
+        <h3 align="center">Aguardando NF e numero do pedido</h3>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+{% block menu %}
+    {{ super() }}
+{% endblock %}
+
+
+{% block content %}
+    <form action="" method="post">
+        <p>
+
+            <label for="order_number" class="form-label">Numero do pedido:</label>
+            <input type="number" name="order_number" class="form-control" placeholder="Exemplo:1080" value={{ order_number }}>
+
+            <label for="height">Altura:</label>
+            <input type="number" name="height" class="form-control" placeholder="Exemplo: 25" value={{ height }}>
+
+            <label for="width" class="form-label">Largura:</label>
+            <input type="number" name="width" class="form-control" placeholder="Exemplo: 17" value={{ width }}>
+
+            <label for="length" class="form-label">Comprimento:</label>
+            <input type="number" name="length" class="form-control" placeholder="Exemplo: 23" value={{ length }}>
+
+            <label for="total_gross_weight" class="form-label">Peso Bruto:</label>
+            <input type="number" name="total_gross_weight" class="form-control" placeholder="Exemplo: 12,3" step="0.1" value={{ total_gross_weight }}>
+
+            <label for="exchange_rate" class="form-label">Câmbio:</label>
+            <input type="number" name="exchange_rate" class="form-control" placeholder="Exemplo: 5,5" step="0.1" value={{ exchange_rate }}>
+
+            <label for="freight" class="form-label">Frete:</label>
+            <input type="number" name="freight" class="form-control" placeholder="Exemplo: 12" value={{ freight }}><br>
+
+
+            <select name="sel1" id="sel1" class="form-select" aria-label="Default select example">
+             <option value="test">Test</option>
+             <option value="real">Real</option>
+            </select>
+
+
+
+        </p>
+
+        <p>
+            <input type="submit" class="btn btn-lg btn-primary w-100 mx-0 mb-2" value="Emitir Documentos">
+        </p>
+    </form>
+    {% if file_to_download %}
+        <button type="button" class="btn btn-outline-primary me-2">
+            <a href="{{ url_for('download', filename=file_to_download) }}">UPS Lable Download</a>
+        </button>
+        <button type="button" class="btn btn-outline-primary me-2">
+            <a href="{{ url_for('download', filename=invoice) }}">Invoice Download</a>
+        </button>
+        <button type="button" class="btn btn-outline-primary me-2">
+            <a href="{{ url_for('download', filename=PL) }}">PL Download</a>
+        </button>
+        <br><br>
+        <p>Numero de Rastreamento: {{ trackNum }}</p>
+        {% else %}
+        <h3 align="center">Favor inserir dados do pedido</h3>
+    {% endif %}
+
+{% endblock %}
