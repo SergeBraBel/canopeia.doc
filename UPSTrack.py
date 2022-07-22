@@ -26,8 +26,8 @@ class UPS:
         self.length = length
         self.total_gross_weight = total_gross_weight
         self.exchange_rate = exchange_rate
- #       self.freight = f"{freight:.{2}f}"
-        self.freight = freight
+        self.freight = f"{freight:.{2}f}"
+  #      self.freight = freight
         self.flag = flag
 
     def create(self):
