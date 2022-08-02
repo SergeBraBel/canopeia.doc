@@ -14,13 +14,13 @@ class ExelFileCreator:
         for i in range(len(lst_of_orders)):
             if lst_of_orders[i]['order']['id'] == self.order_number:
                 order_number_i = i
-                # print(order_number_i)
+                print(order_number_i)
                 break
 
         for i in range(len(lst_of_orders[order_number_i]['order']['products'])):
             print(lst_of_orders[order_number_i]['order']['products'][i]['sku'],
                   lst_of_orders[order_number_i]['order']['products'][i]['qty'])
-
+        print(order_number_i)
         wb = load_workbook("pedido_template.xlsx")
         sheets = wb.sheetnames
         Sheet1 = wb[sheets[0]]

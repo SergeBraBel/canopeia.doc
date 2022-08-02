@@ -153,12 +153,12 @@ class UPS:
                         "Name": f"{info_dict['name']} {info_dict['surname']}",
                         "AttentionName": f"{info_dict['name']} {info_dict['surname']}",
                         "Phone": {
-                            "Number": str(info_dict['phone'])
+                            "Number": str(info_dict['phone']).replace(" ", '')
                         },
-                        "FaxNumber": str(info_dict['phone']),
+                        "FaxNumber": str(info_dict['phone']).replace(" ", ''),
                         "TaxIdentificationNumber": "",
                         "Address": {
-                            "AddressLine": info_dict['address'],
+                            "AddressLine": info_dict['address'].translate(str.maketrans('Òòä', 'Ooa')),
                             "City": info_dict['city'],
                             "StateProvinceCode": info_dict['region'][0:2],
                             "PostalCode": info_dict['postal'],
